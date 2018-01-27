@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Signal
+  - Controller
+  - Planet
   layers:
   - Default
   - TransparentFX
