@@ -10,7 +10,7 @@ public class Planet {
     [HideInInspector]
     public float radius;
     float gravWellRadius;
-    bool goalPlanet;
+    public bool isGoalPlanet;
 
     public Planet(Vector3 location, float mass, float radius, bool goalPlanet = false) {
         this.location = location;

@@ -5,10 +5,8 @@ using System;
 
 public class PlanetController : MonoBehaviour {
 
-    const int MIN_PLANETS = 4;
-    const int MAX_PLANETS = 10;
-    const int MIN_MASS = 4;
-    const int MAX_MASS = 10;
+    const int MIN_MASS = 20;
+    const int MAX_MASS = 50;
     const int MIN_RADIUS = 1;
     const int MAX_RADIUS = 5;
 
@@ -57,6 +55,11 @@ public class PlanetController : MonoBehaviour {
                                 UnityEngine.Random.Range(MIN_RADIUS, MAX_RADIUS));
         GameObject planetGO = Instantiate(planetPrefabs[(int)planet.radius - 1], planet.location, Quaternion.identity, this.transform);
         planets.Add(planetGO, planet );
+    }
+
+    public bool IsWinPlanet(GameObject go_planet)
+    {
+        return planets[go_planet].isGoalPlanet;
     }
 
 }
