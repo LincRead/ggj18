@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ShipCotroller : MonoBehaviour {
     Vector2 veocity = Vector2.zero;
-
+    public float thrustPower;
     public float speed;
+    
 
     // Use this for initialization
     private void Start () {
@@ -56,14 +57,14 @@ public class ShipCotroller : MonoBehaviour {
                 Debug.Log("left");
                 if (veocity.y < 3)
                 {
-                    veocity.y += 1f;
+                    veocity.y += thrustPower;
                 }
                 break;
             case SignalCommand.RIGHT:
                 Debug.Log("right");
                 if (veocity.y > -3)
                 {
-                    veocity.y -= 1f;
+                    veocity.y -= thrustPower;
                 }
                 break;
             case SignalCommand.SHIELD:

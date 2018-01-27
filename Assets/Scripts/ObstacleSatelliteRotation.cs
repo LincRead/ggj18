@@ -11,8 +11,8 @@ public class ObstacleSatelliteRotation : MonoBehaviour {
 
     public const int MIN_SATELITES = 10;
     public const int MAX_SATELITES = 30;
-    public const int MIN_ORBIT_RANGE = -100;
-    public const int MAX_ORBIT_RANGE = 100;
+    public const int MIN_ORBIT_RANGE = -10;
+    public const int MAX_ORBIT_RANGE = 10;
     public const int MIN_ORBIT_SPEED = 5;
     public const int MAX_ORBIT_SPEED = 15;
 

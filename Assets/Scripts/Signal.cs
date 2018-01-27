@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum SignalCommand { LEFT, RIGHT, SHIELD }
-public class Signal : MonoBehaviour {
+public class Signal : MonoBehaviour
+{
 
     public float speed;
     public SignalCommand signalCommand;
@@ -14,19 +15,42 @@ public class Signal : MonoBehaviour {
     float m_Red, m_Blue, m_Green;
 
     // Use this for initialization
-    void Start () {
-        m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        m_SpriteRenderer.color = Color.yellow;
+    void Start()
+    {
+        setColour(signalCommand);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         Vector3 currPosition = transform.position;
         Vector3 shipPosition = WorldManager.instance.ship.transform.position;
         transform.position = Vector3.MoveTowards(currPosition, shipPosition, speed * Time.deltaTime);
-	}
+    }
 
-    public void DestroyAfterCommand() {
+    public void DestroyAfterCommand()
+    {
         Destroy(this);
+    }
+
+    public void setColour(SignalCommand signalCommand)
+    {
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+
+        switch (signalCommand)
+        {
+            case SignalCommand.LEFT:
+                Debug.Log("setColourRed");
+                m_SpriteRenderer.color = Color.red;
+                break;
+            case SignalCommand.RIGHT:
+                Debug.Log("SetColourGreen");
+                m_SpriteRenderer.color = Color.green;
+                break;
+            case SignalCommand.SHIELD:
+                Debug.Log("SetClourBlue");
+                m_SpriteRenderer.color = Color.black;
+                break;
+        }
     }
 }
