@@ -7,14 +7,23 @@ public class Signal : MonoBehaviour {
 
     public float speed;
     public SignalCommand signalCommand;
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+    SpriteRenderer m_SpriteRenderer;
+    Color m_NewColor;
+
+    float m_Red, m_Blue, m_Green;
+
+    // Use this for initialization
+    void Start () {
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_SpriteRenderer.color = Color.yellow;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = Vector3.MoveTowards(transform.position, WorldManager.instance.ship.transform.position, speed * Time.deltaTime);
+        Vector3 currPosition = transform.position;
+        Vector3 shipPosition = WorldManager.instance.ship.transform.position;
+        transform.position = Vector3.MoveTowards(currPosition, shipPosition, speed * Time.deltaTime);
 	}
 
     public void DestroyAfterCommand() {

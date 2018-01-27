@@ -3,52 +3,66 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipCotroller : MonoBehaviour {
+    Vector2 veocity = Vector2.zero;
 
-    private Rigidbody2D rb;
-
-    #region
-
-    private void FixedUpdate()
-    {
-
-    }
-
-    #endregion
-
-    #region
-
+    public float speed;
 
     // Use this for initialization
     private void Start () {
-        rb = GetComponent<Rigidbody2D>();
-	}
+        veocity.x = +speed;
+    }
 
     private void Update() {
-        float yAxis = Input.GetAxis("Vertical");
-        float xAxis = 1;
-
-        ThrustUpDown(yAxis);
-        ThrustContant(xAxis);
+      //  Debug.Log(veocity.y);
+        
+        if (Input.GetKeyDown("down"))
+        {
+            if (veocity.y > -3) {
+                veocity.y -= 1f;
+            }
+        }
+        if (Input.GetKeyDown("up"))
+        {
+            if (veocity.y < 3) {
+                veocity.y += 1f;
+            }
+        }
+        transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
     }
 
+
+
+    #region
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collision");
+        if (collision.gameObject.tag == "planet")
+        {
+            Debug.Log("explode");
+        }
+
+        if (collision.gameObject.tag == "signal")
+        {
+            Debug.Log("call method action");
+            receiveSignal(collision.gameObject.GetComponent<Signal>().signalCommand);
+            Destroy(collision.gameObject);
+        }
+    }
+
+    public void receiveSignal(SignalCommand signalCommand) {
+        Debug.Log("hit");
+
+            switch (signalCommand) {
+            case SignalCommand.LEFT:
+                Debug.Log("left");
+                break;
+            case SignalCommand.RIGHT:
+                Debug.Log("right");
+                break;
+            case SignalCommand.SHIELD:
+                Debug.Log("shield");
+                break;
+        } 
+    }
     #endregion
-
-    #region Maneuvering API
-
-    private void ClampVelocity() {
-
-    }
-
-    private void ThrustUpDown(float amount) {
-        Vector2 force = transform.up * amount;
-        rb.AddForce(force);
-    }
-
-    private void ThrustContant(float amount) {
-        Vector2 force = transform.right * 1;
-        rb.AddForce(force);
-    }
-
-    #endregion
-
 }
