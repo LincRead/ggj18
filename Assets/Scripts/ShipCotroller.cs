@@ -5,9 +5,11 @@ using UnityEngine;
 public class ShipCotroller : MonoBehaviour {
     Vector2 veocity = Vector2.zero;
 
+    public float speed;
+
     // Use this for initialization
     private void Start () {
-        veocity.x = +1f;
+        veocity.x = +speed;
     }
 
     private void Update() {
@@ -28,8 +30,7 @@ public class ShipCotroller : MonoBehaviour {
         transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
     }
 
-    #region
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)    
     {
         Debug.Log("collision");
         if (collision.gameObject.tag == "planet")
@@ -37,7 +38,7 @@ public class ShipCotroller : MonoBehaviour {
             Debug.Log("explode");
         }
 
-        if (collision.gameObject.tag == "signal")
+        if (collision.gameObject.tag == "Signal")
         {
             Debug.Log("call method action");
             receiveSignal(collision.gameObject.GetComponent<Signal>().signalCommand);
@@ -45,20 +46,31 @@ public class ShipCotroller : MonoBehaviour {
         }
     }
 
-    public void receiveSignal(SignalCommand signalCommand) {
+    public void receiveSignal(SignalCommand signalCommand)
+    {
         Debug.Log("hit");
 
-            switch (signalCommand) {
+        switch (signalCommand)
+        {
             case SignalCommand.LEFT:
                 Debug.Log("left");
+                if (veocity.y < 3)
+                {
+                    veocity.y += 1f;
+                }
                 break;
             case SignalCommand.RIGHT:
                 Debug.Log("right");
+                if (veocity.y > -3)
+                {
+                    veocity.y -= 1f;
+                }
                 break;
             case SignalCommand.SHIELD:
                 Debug.Log("shield");
                 break;
-        } 
+        }
     }
-    #endregion
+
 }
+

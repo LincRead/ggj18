@@ -129,9 +129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2b7daec54d4f743b7398fe4cd18391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftSignal: {fileID: 0}
-  RightSignal: {fileID: 0}
-  ShieldSignal: {fileID: 0}
+  LeftSignal: {fileID: 1156986759163594, guid: 788c89428da0960439b22b1f6918bba8, type: 2}
+  RightSignal: {fileID: 1056619010999752, guid: 017403a8876e97a4a8035de3de734b7e,
+    type: 2}
+  ShieldSignal: {fileID: 1759209138119516, guid: bb52b104ac43e994f9b0e246a3c5098e,
+    type: 2}
   canSendSignal: 0
 --- !u!212 &212151371023209004
 SpriteRenderer:

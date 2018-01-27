@@ -22,11 +22,9 @@ GameObject:
   - component: {fileID: 212871496398826464}
   - component: {fileID: 61685128059756898}
   - component: {fileID: 114754192984754354}
-  - component: {fileID: 114136606982520014}
-  - component: {fileID: 50069418636669076}
   m_Layer: 0
-  m_Name: signal_sheild 1
-  m_TagString: Untagged
+  m_Name: signal_left
+  m_TagString: Signal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,26 +42,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50069418636669076
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1156986759163594}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &61685128059756898
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -89,17 +67,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.18}
   m_EdgeRadius: 0
---- !u!114 &114136606982520014
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1156986759163594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e20ba6261739144b269c970180bbdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114754192984754354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dbb825b650bfd43af5941dadf99290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 2
   signalCommand: 0
 --- !u!212 &212871496398826464
 SpriteRenderer:
