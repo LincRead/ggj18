@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour {
     [HideInInspector]
     public int zoomLevel = 3;
 
-    public float zoomTweenTime = 2f; 
+    public float zoomTweenTime = 1.5f; 
 
     CameraPixel _pixelSettings;
 
@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour {
 
         //ChangeZoomLevel(4);
 
-        Invoke("ZoomInAnimation", 4f);
+        Invoke("ZoomInAnimation", 2.25f);
 	}
 
     void ZoomInAnimation()
@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour {
 	
 	void Update ()
     {
-        _transform.position = WorldManager.instance.ship.transform.position - new Vector3(-1f, 0, 10);
+        _transform.position = new Vector3(WorldManager.instance.ship.transform.position.x + 0.5f, 0f, -10f);
 
         // HandleDebugInput();
 	}

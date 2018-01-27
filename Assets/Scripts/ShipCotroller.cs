@@ -16,7 +16,7 @@ public class ShipCotroller : MonoBehaviour {
         transform.localScale = new Vector3(0,0,0);
         _shipVisuals = GetComponent<ShipVisuals>();
 
-        Invoke("Init", 1f);
+        Invoke("Init", 0f);
     }
 
     private void Init()
@@ -25,8 +25,8 @@ public class ShipCotroller : MonoBehaviour {
         LeanTween.scale(gameObject, new Vector3(1, 1, 1), 2);
     }
 
-    private void Update() {
-        
+    private void Update()
+    {
         transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
     }
 

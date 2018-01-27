@@ -40,7 +40,6 @@ public class ObstacleOrbitRotation : MonoBehaviour {
     void Update () {
         foreach(Transform transform in this.GetComponentsInChildren<Transform>())
         {
-            Debug.Log(transform.gameObject.tag);
             if (transform == parentTransform)
                 continue;
             string rotateSpeedString = transform.gameObject.name.Substring(0, 1);

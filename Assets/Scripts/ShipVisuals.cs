@@ -15,7 +15,7 @@ public class ShipVisuals : MonoBehaviour {
 	
 	void Update ()
     {
-        HandleDebugInput();
+        //HandleDebugInput();
 	}
 
     void HandleDebugInput()
