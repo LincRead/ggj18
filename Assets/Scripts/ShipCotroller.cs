@@ -13,25 +13,14 @@ public class ShipCotroller : MonoBehaviour {
     // Use this for initialization
     private void Start () {
         veocity.x = velocityX;
-
+        transform.localScale = new Vector3(0,0,0);
+        LeanTween.scale(gameObject, new Vector3(1, 1, 1), 2);     
+          
         _shipVisuals = GetComponent<ShipVisuals>();
     }
 
     private void Update() {
         
-        /*if (Input.GetKeyDown("down"))
-        {
-            if (veocity.y > -3) {
-                veocity.y -= 1f;
-            }
-        }
-        if (Input.GetKeyDown("up"))
-        {
-            if (veocity.y < 3) {
-                veocity.y += 1f;
-            }
-        }*/
-
         transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
     }
 
