@@ -37,7 +37,7 @@ public class WorldManager : MonoBehaviour
         
     }
 
-    void Start()
+    void OnEnable()
     {
         ship = GameObject.FindGameObjectWithTag("Player");
     }

@@ -8,19 +8,24 @@ public class ObstacleOrbitRotation : MonoBehaviour {
     public float rotateSpeed;
     Transform parentTransform;
     public GameObject[] obstaclePrefabs;
+    PlanetController pc;
 
     public const int MIN_SATELITES = 10;
     public const int MAX_SATELITES = 30;
-    public const int MIN_ORBIT_RANGE = -200;
-    public const int MAX_ORBIT_RANGE = 200;
-    public const int MIN_ORBIT_SPEED = 5;
-    public const int MAX_ORBIT_SPEED = 15;
+    public int MIN_ORBIT_RANGE = -50;
+    public int MAX_ORBIT_RANGE = 50;
+    public const int MIN_ORBIT_SPEED = 3;
+    public const int MAX_ORBIT_SPEED = 10;
 
     // Use this for initialization
     void Start () {
         parentTransform = this.transform;
+        
+        pc = GameObject.FindObjectOfType<PlanetController>();
+        MIN_ORBIT_RANGE = 5 - (int)pc.planetSpacing;
+        MAX_ORBIT_RANGE = (int)pc.planetSpacing - 5;
         SetupSatelites();
-	}
+    }
 
     private void SetupSatelites()
     {
@@ -32,6 +37,7 @@ public class ObstacleOrbitRotation : MonoBehaviour {
             rotateSpeed = UnityEngine.Random.Range(MIN_ORBIT_SPEED, MAX_ORBIT_SPEED);
             string rotateDirection = UnityEngine.Random.Range(0, 10) <= 5 ? "C" : "A";
             go.name = rotateSpeed.ToString() + rotateDirection;
+            go.tag = "Obstacle";
 
         }
     }
