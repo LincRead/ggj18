@@ -7,10 +7,17 @@ public class Signal : MonoBehaviour {
 
     public float speed;
     public SignalCommand signalCommand;
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+    SpriteRenderer m_SpriteRenderer;
+    Color m_NewColor;
+
+    float m_Red, m_Blue, m_Green;
+
+    // Use this for initialization
+    void Start () {
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_SpriteRenderer.color = Color.yellow;
+    }
 	
 	// Update is called once per frame
 	void Update () {
