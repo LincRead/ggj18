@@ -10,15 +10,20 @@ public class CameraController : MonoBehaviour {
     public float zoomTweenTime = 1f; 
 
     CameraPixel _pixelSettings;
+
+    Transform _transform;
     
 	void Start ()
     {
         _pixelSettings = GetComponent<CameraPixel>();
+        _transform = GetComponent<Transform>();
 	}
 	
 	void Update ()
     {
-        HandleDebugInput();
+        _transform.position = WorldManager.instance.ship.transform.position - new Vector3(-1f, 0, 10);
+
+        // HandleDebugInput();
 	}
 
     void HandleDebugInput()
