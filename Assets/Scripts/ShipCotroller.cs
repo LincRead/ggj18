@@ -30,7 +30,7 @@ public class ShipCotroller : MonoBehaviour {
         transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)    
     {
         Debug.Log("collision");
         if (collision.gameObject.tag == "planet")
