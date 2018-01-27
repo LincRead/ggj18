@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class Planet {
 
-    Vector2 location;
+    Vector3 location;
     float mass;
     float radius;
     float gravWellRadius;
 
-    public Planet(Vector2 location, float mass, float radius, float gravWellRadius) {
+    public Planet(Vector3 location, float mass, float radius) {
         this.location = location;
         this.mass = mass;
         this.radius = radius;
-        this.gravWellRadius = gravWellRadius;
+        this.gravWellRadius = mass * radius;
     }
 
-    public void Update() {
-        if (IsSpaceshipInGravWell(GameObject.FindGameObjectWithTag("Player").transform.position))
-            PullShip();
+    public void Update(Transform shipTransform) {
+        if (IsSpaceshipInGravWell(shipTransform.position))
+            PullShip(shipTransform.position);
     }
 
-    public bool IsSpaceshipInGravWell(Vector2 spaceshipPos) {
-        if (Vector2.Distance(spaceshipPos, location) < gravWellRadius)
+    public bool IsSpaceshipInGravWell(Vector3 spaceshipPos) {
+        if (Vector3.Distance(spaceshipPos, location) < gravWellRadius)
             return true;
         return false;
     }
 
-    void PullShip()
+    void PullShip(Vector3 shipTransform)
     {
-        Vector2 gravVelocity = new Vector2(location.x + (mass * radius), location.y + (mass * radius));
-        WorldManager.PullShip(gravVelocity);
+        Vector2 gravVelocity = new Vector2(Mathf.Abs(location.x - shipTransform.x) - (mass * radius), Mathf.Abs(location.y - shipTransform.y) - (mass * radius));
+        PlanetController.PullShip(gravVelocity, shipTransform);
     }
 }
