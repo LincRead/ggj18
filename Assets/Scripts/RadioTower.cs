@@ -14,6 +14,7 @@ public class RadioTower : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        canSendSignal = true;
         _animator = GetComponent<Animator>();
 	}
 	
@@ -27,6 +28,11 @@ public class RadioTower : MonoBehaviour {
                 LaunchSignal(SignalCommand.SHIELD);
 	}
 
+    public void LaunchSignal(int sigCommand)
+    {
+        LaunchSignal((SignalCommand)sigCommand);
+    }
+
     public void LaunchSignal(SignalCommand sigCommand)
     {
         if (canSendSignal)
@@ -35,15 +41,15 @@ public class RadioTower : MonoBehaviour {
             {
                 case SignalCommand.LEFT:
                     if (LeftSignal)
-                        Instantiate(LeftSignal, this.transform);
+                        Instantiate(LeftSignal, this.transform.position, Quaternion.identity, this.transform);
                     break;
                 case SignalCommand.RIGHT:
                     if (RightSignal)
-                        Instantiate(RightSignal, this.transform);
+                        Instantiate(RightSignal, this.transform.position, Quaternion.identity, this.transform);
                     break;
                 case SignalCommand.SHIELD:
                     if (ShieldSignal)
-                        Instantiate(ShieldSignal, this.transform);
+                        Instantiate(ShieldSignal, this.transform.position, Quaternion.identity, this.transform);
                     break;
             }
 

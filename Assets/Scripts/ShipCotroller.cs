@@ -5,9 +5,11 @@ using UnityEngine;
 public class ShipCotroller : MonoBehaviour {
     Vector2 veocity = Vector2.zero;
 
+    public float speed;
+
     // Use this for initialization
     private void Start () {
-        veocity.x = +1f;
+        veocity.x = +speed;
     }
 
     private void Update() {
@@ -27,6 +29,8 @@ public class ShipCotroller : MonoBehaviour {
         }
         transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
     }
+
+
 
     #region
     private void OnCollisionEnter(Collision collision)
