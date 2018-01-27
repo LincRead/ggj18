@@ -23,19 +23,25 @@ public class CameraController : MonoBehaviour {
 
     void HandleDebugInput()
     {
-        if(Input.GetKey(KeyCode.Alpha1))
+        if(Input.GetKey(KeyCode.Alpha4))
         {
             ChangeZoomLevel(1);
         }
 
-        else if (Input.GetKey(KeyCode.Alpha2))
+        else if (Input.GetKey(KeyCode.Alpha3))
         {
             ChangeZoomLevel(2);
         }
 
-        else if (Input.GetKey(KeyCode.Alpha3))
+        else if (Input.GetKey(KeyCode.Alpha2))
         {
             ChangeZoomLevel(3);
+        }
+
+
+        else if (Input.GetKey(KeyCode.Alpha1))
+        {
+            ChangeZoomLevel(4);
         }
     }
 
