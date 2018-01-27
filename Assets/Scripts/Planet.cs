@@ -8,16 +8,17 @@ public class Planet {
     float mass;
     float radius;
     float gravWellRadius;
+    bool goalPlanet;
 
-    public Planet(Vector3 location, float mass, float radius) {
+    public Planet(Vector3 location, float mass, float radius, bool goalPlanet = false) {
         this.location = location;
         this.mass = mass;
         this.radius = radius;
         this.gravWellRadius = mass * radius;
+        this.goalPlanet = goalPlanet;
     }
 
     public void Update(Transform shipTransform) {
-        Debug.Log("Planet:: Update- ship in range: "  + IsSpaceshipInGravWell(shipTransform.position));
         if (IsSpaceshipInRadius(shipTransform.position))
             Debug.LogAssertion("SHIP IS DEAD");
 
@@ -41,7 +42,6 @@ public class Planet {
     void PullShip(Vector3 shipTransform)
     {
         Vector2 gravVelocity = new Vector2(0, Mathf.Clamp((mass * radius) * (location.y - shipTransform.y), -5, 5));
-        Debug.Log("Pulling ship: " + gravVelocity.ToString());
         PlanetController.PullShip(gravVelocity, shipTransform);
     }
 }
