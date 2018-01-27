@@ -4,51 +4,45 @@ using UnityEngine;
 
 public class ShipCotroller : MonoBehaviour {
 
-    private Rigidbody2D rb;
-
-    #region
-
-    private void FixedUpdate()
-    {
-
-    }
-
-    #endregion
-
-    #region
-
-
+    private Transform shipTran;
+  
     // Use this for initialization
     private void Start () {
-        rb = GetComponent<Rigidbody2D>();
+        shipTran = GetComponent<Transform>();
 	}
 
     private void Update() {
-        float yAxis = Input.GetAxis("Vertical");
-        float xAxis = 1;
+       // shipTran.position += Vector3.left;
 
-        ThrustUpDown(yAxis);
-        ThrustContant(xAxis);
+        if (Input.GetKeyDown("up"))
+        {
+            Debug.Log("up");
+            shipTran.position += Vector3.up * 1.0f;
+        }
+
+        if (Input.GetKeyDown("down"))
+        {
+            Debug.Log("down");
+        }
+
+
     }
 
-    #endregion
-
-    #region Maneuvering API
-
-    private void ClampVelocity() {
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "planet")
+        {
+            Debug.Log("explode");
+        }
+        if (collision.gameObject.tag == "signal")
+        {
+            Debug.Log("call method action");
+        }
 
     }
 
-    private void ThrustUpDown(float amount) {
-        Vector2 force = transform.up * amount;
-        rb.AddForce(force);
-    }
+    public void receiveSignal() {
 
-    private void ThrustContant(float amount) {
-        Vector2 force = transform.right * 1;
-        rb.AddForce(force);
     }
-
-    #endregion
 
 }
