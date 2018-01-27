@@ -8,7 +8,7 @@ public class ShipCotroller : MonoBehaviour {
     public float velocityX = 1f;
     public float maxSpeed = 3f;
 
-    private ShipVisuals _shipVisuals;
+    private ShipVisuals _shipVisuals;   
 
     // Use this for initialization
     private void Start () {
