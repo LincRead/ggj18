@@ -5,31 +5,32 @@ using UnityEngine;
 public class ShipCotroller : MonoBehaviour {
 
     private Transform shipTran;
-  
+
+    Vector2 veocity = Vector2.zero;
+
     // Use this for initialization
     private void Start () {
         shipTran = GetComponent<Transform>();
-	}
-
-
-
+        veocity.x = -1f;
+    }
 
     private void Update() {
-       shipTran.position += Vector3.left * 0.01f;
-
+        Debug.Log(veocity.y);
+        
         if (Input.GetKeyDown("down"))
         {
-            Debug.Log("down");
-            shipTran.position += Vector3.up * 0.5f;
+            if (veocity.y > -3) {
+                veocity.y -= 1f;
+            }
         }
 
         if (Input.GetKeyDown("up"))
         {
-            Debug.Log("up");
-            shipTran.position += Vector3.down * 0.5f;
+            if (veocity.y < 3) {
+                veocity.y += 1f;
+            }
         }
-
-
+        transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
     }
 
     #region
