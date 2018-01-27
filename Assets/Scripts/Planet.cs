@@ -40,7 +40,7 @@ public class Planet {
 
     void PullShip(Vector3 shipTransform)
     {
-        Vector2 gravVelocity = new Vector2(Mathf.Clamp((mass * radius) * (location.x - shipTransform.x), -5, 5), Mathf.Clamp((mass * radius) * (location.y - shipTransform.y), -5, 5));
+        Vector2 gravVelocity = new Vector2(0, Mathf.Clamp((mass * radius) * (location.y - shipTransform.y), -5, 5));
         Debug.Log("Pulling ship: " + gravVelocity.ToString());
         PlanetController.PullShip(gravVelocity, shipTransform);
     }

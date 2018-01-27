@@ -11,13 +11,13 @@ public class PlanetController : MonoBehaviour {
     const int MAX_MASS = 10;
     const int MIN_RADIUS = 2;
     const int MAX_RADIUS = 5;
-    List<Planet> planets;
+    Dictionary<GameObject, Planet> planets;
     Transform shipTransform;
     public static PlanetController current;
     // Use this for initialization
     void Start () {
-        planets = new List<Planet>();
-        planets.Add(new Planet(new Vector3(5, 10, 0), 5, 10));
+        planets = new Dictionary<GameObject, Planet>();
+        planets.Add(new GameObject("planet"), new Planet(new Vector3(5, 10, 0), 5, 10));
         //CreatePlanets();
         shipTransform = GameObject.FindGameObjectWithTag("Player").transform;
         current = this;
@@ -25,7 +25,7 @@ public class PlanetController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		foreach(Planet planet in planets)
+		foreach(Planet planet in planets.Values)
         {
             planet.Update(shipTransform);
         }
@@ -46,7 +46,7 @@ public class PlanetController : MonoBehaviour {
 
     void CreatePlanet()
     {
-        planets.Add(new Planet(new Vector3(UnityEngine.Random.Range(100, 200), UnityEngine.Random.Range(100, 200), 0),
+        planets.Add(new GameObject("planet"), new Planet(new Vector3(UnityEngine.Random.Range(100, 200), UnityEngine.Random.Range(100, 200), 0),
                                 UnityEngine.Random.Range(MIN_MASS, MAX_MASS),
                                 UnityEngine.Random.Range(MIN_RADIUS, MAX_RADIUS)));
     }
