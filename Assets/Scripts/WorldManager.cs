@@ -7,6 +7,7 @@ public class WorldManager : MonoBehaviour
     private static WorldManager worldManager;
     public GameObject ship;
 
+
     public static WorldManager instance
     {
         get
