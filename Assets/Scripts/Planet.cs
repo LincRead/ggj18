@@ -17,7 +17,7 @@ public class Planet {
         this.mass = mass;
         this.radius = radius;
         this.gravWellRadius = mass * radius;
-        this.goalPlanet = goalPlanet;
+        this.isGoalPlanet = goalPlanet;
     }
 
     public void Update(Transform shipTransform) {

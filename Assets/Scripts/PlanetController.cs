@@ -50,7 +50,7 @@ public class PlanetController : MonoBehaviour {
 
     void CreatePlanet(float xIndex)
     {
-        Planet planet = new Planet(new Vector3(xIndex, UnityEngine.Random.Range(100, 200), 0),
+        Planet planet = new Planet(new Vector3(xIndex, UnityEngine.Random.Range(0, 10), 0),
                                 UnityEngine.Random.Range(MIN_MASS, MAX_MASS),
                                 UnityEngine.Random.Range(MIN_RADIUS, MAX_RADIUS));
         GameObject planetGO = Instantiate(planetPrefabs[(int)planet.radius - 1], planet.location, Quaternion.identity, this.transform);
