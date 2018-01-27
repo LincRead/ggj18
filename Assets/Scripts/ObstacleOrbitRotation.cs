@@ -41,7 +41,7 @@ public class ObstacleOrbitRotation : MonoBehaviour {
         foreach(Transform transform in this.GetComponentsInChildren<Transform>())
         {
             Debug.Log(transform.gameObject.tag);
-            if (transform.gameObject.tag == "Planet")
+            if (transform == parentTransform)
                 continue;
             string rotateSpeedString = transform.gameObject.name.Substring(0, 1);
             rotateSpeed = float.Parse(rotateSpeedString);
@@ -49,7 +49,7 @@ public class ObstacleOrbitRotation : MonoBehaviour {
                 transform.RotateAround(parentTransform.position, new Vector3(0, 0, 1), rotateSpeed * Time.deltaTime);
             else
                 transform.RotateAround(parentTransform.position, new Vector3(0, 0, -1), rotateSpeed * Time.deltaTime);
-
+            //transform.LookAt(parentTransform);
         }
     }
 }
