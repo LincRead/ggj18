@@ -14,6 +14,10 @@ public class Signal : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    //transform.position = Vector3.MoveTowards(transform.position, )
+        transform.position = Vector3.MoveTowards(transform.position, WorldManager.instance.ship.transform.position, speed * Time.deltaTime);
 	}
+
+    public void DestroyAfterCommand() {
+        Destroy(this);
+    }
 }
