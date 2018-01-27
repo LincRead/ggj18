@@ -12,11 +12,17 @@ public class ShipCotroller : MonoBehaviour {
 
     // Use this for initialization
     private void Start () {
-        veocity.x = velocityX;
+
         transform.localScale = new Vector3(0,0,0);
-        LeanTween.scale(gameObject, new Vector3(1, 1, 1), 2);     
-          
         _shipVisuals = GetComponent<ShipVisuals>();
+
+        Invoke("Init", 1f);
+    }
+
+    private void Init()
+    {
+        veocity.x = velocityX;
+        LeanTween.scale(gameObject, new Vector3(1, 1, 1), 2);
     }
 
     private void Update() {

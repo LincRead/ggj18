@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour {
     [HideInInspector]
     public int zoomLevel = 3;
 
-    public float zoomTweenTime = 1f; 
+    public float zoomTweenTime = 2f; 
 
     CameraPixel _pixelSettings;
 
@@ -17,7 +17,16 @@ public class CameraController : MonoBehaviour {
     {
         _pixelSettings = GetComponent<CameraPixel>();
         _transform = GetComponent<Transform>();
+
+        //ChangeZoomLevel(4);
+
+        Invoke("ZoomInAnimation", 4f);
 	}
+
+    void ZoomInAnimation()
+    {
+        ChangeZoomLevel(2);
+    }
 	
 	void Update ()
     {
@@ -55,6 +64,6 @@ public class CameraController : MonoBehaviour {
         LeanTween.value(gameObject, _pixelSettings.pixelScale, zoomLevel, zoomTweenTime).setOnUpdate((float val) => 
         {
             _pixelSettings.pixelScale = val;
-        });
+        }).setEaseInOutQuad();
     }
 }
