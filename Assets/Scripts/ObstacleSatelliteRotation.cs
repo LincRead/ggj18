@@ -30,7 +30,8 @@ public class ObstacleSatelliteRotation : MonoBehaviour {
             GameObject go = Instantiate(satelitePrefab, new Vector3(transform.position.x + UnityEngine.Random.Range(MIN_ORBIT_RANGE, MAX_ORBIT_RANGE), transform.position.y + UnityEngine.Random.Range(MIN_ORBIT_RANGE, MAX_ORBIT_RANGE)),
                                                     Quaternion.identity, this.transform);
             rotateSpeed = UnityEngine.Random.Range(MIN_ORBIT_SPEED, MAX_ORBIT_SPEED);
-            go.name = rotateSpeed.ToString();
+            string rotateDirection = UnityEngine.Random.Range(0, 10) <= 5 ? "C" : "A";
+            go.name = rotateSpeed.ToString() + rotateDirection;
 
         }
     }
@@ -41,8 +42,13 @@ public class ObstacleSatelliteRotation : MonoBehaviour {
         {
             if (transform.gameObject.name.Contains("S"))
                 continue;
-            rotateSpeed = float.Parse(transform.gameObject.name);
-            transform.RotateAround(parentTransform.position, new Vector3(0, 0, 1), rotateSpeed * Time.deltaTime);
+            string rotateSpeedString = transform.gameObject.name.Substring(0, 1);
+            rotateSpeed = float.Parse(rotateSpeedString);
+            if(transform.gameObject.name.Substring(1,1) == "C")
+                transform.RotateAround(parentTransform.position, new Vector3(0, 0, 1), rotateSpeed * Time.deltaTime);
+            else
+                transform.RotateAround(parentTransform.position, new Vector3(0, 0, -1), rotateSpeed * Time.deltaTime);
+
         }
     }
 }
