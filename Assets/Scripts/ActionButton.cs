@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class ActionButton : MonoBehaviour {
 
-	public void Action()
+    private void Update()
+    {
+        //if(WorldManager.instance.)   
+    }
+
+    public void Action()
     {
 
     }

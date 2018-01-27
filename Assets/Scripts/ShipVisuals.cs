@@ -6,6 +6,8 @@ public class ShipVisuals : MonoBehaviour {
 
     private Animator _animator;
 
+    public GameObject explosion;
+
 	void Start ()
     {
         _animator = GetComponent<Animator>();
@@ -27,6 +29,11 @@ public class ShipVisuals : MonoBehaviour {
         {
             ActivateRightEngine();
         }
+
+        else if(Input.GetKeyDown(KeyCode.X))
+        {
+            PlayExplosion();
+        }
     }
 
     public void ActivateLeftEngine()
@@ -37,5 +44,13 @@ public class ShipVisuals : MonoBehaviour {
     public void ActivateRightEngine()
     {
         _animator.Play("right");
+    }
+
+    public void PlayExplosion()
+    {
+        if(explosion)
+        {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+        }
     }
 }

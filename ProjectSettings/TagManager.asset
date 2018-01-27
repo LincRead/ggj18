@@ -48,3 +48,6 @@ TagManager:
   - name: Ship
     uniqueID: 4196662181
     locked: 0
+  - name: Effects
+    uniqueID: 332189515
+    locked: 0
