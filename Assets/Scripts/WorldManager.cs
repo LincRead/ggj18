@@ -5,8 +5,9 @@ using UnityEngine;
 public class WorldManager : MonoBehaviour
 {
     private static WorldManager worldManager;
-    public GameObject ship;
 
+    [HideInInspector]
+    public GameObject ship;
 
     public static WorldManager instance
     {
@@ -32,6 +33,11 @@ public class WorldManager : MonoBehaviour
     }
 
     void Init()
+    {
+        
+    }
+
+    void Start()
     {
         ship = GameObject.FindGameObjectWithTag("Player");
     }

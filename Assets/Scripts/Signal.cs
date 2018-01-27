@@ -10,14 +10,14 @@ public class Signal : MonoBehaviour
     public SignalCommand signalCommand;
 
     SpriteRenderer m_SpriteRenderer;
-    Color m_NewColor;
 
-    float m_Red, m_Blue, m_Green;
+    public Color signalColor;
 
     // Use this for initialization
     void Start()
     {
-        setColour(signalCommand);
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_SpriteRenderer.color = signalColor;
     }
 
     // Update is called once per frame
@@ -31,26 +31,5 @@ public class Signal : MonoBehaviour
     public void DestroyAfterCommand()
     {
         Destroy(this);
-    }
-
-    public void setColour(SignalCommand signalCommand)
-    {
-        m_SpriteRenderer = GetComponent<SpriteRenderer>();
-
-        switch (signalCommand)
-        {
-            case SignalCommand.LEFT:
-                Debug.Log("setColourRed");
-                m_SpriteRenderer.color = Color.red;
-                break;
-            case SignalCommand.RIGHT:
-                Debug.Log("SetColourGreen");
-                m_SpriteRenderer.color = Color.green;
-                break;
-            case SignalCommand.SHIELD:
-                Debug.Log("SetClourBlue");
-                m_SpriteRenderer.color = Color.black;
-                break;
-        }
     }
 }

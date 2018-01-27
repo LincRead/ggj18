@@ -12,6 +12,8 @@ public class RadioTower : MonoBehaviour {
 
     Animator _animator;
 
+    private SignalCommand nextSignalToSend;
+
 	// Use this for initialization
 	void Start () {
         canSendSignal = true;
@@ -20,43 +22,46 @@ public class RadioTower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-            if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W))
-                LaunchSignal(SignalCommand.LEFT);
-            if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
-                LaunchSignal(SignalCommand.RIGHT);
-            if (Input.GetKeyUp(KeyCode.Space))
-                LaunchSignal(SignalCommand.SHIELD);
+        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W))
+            LaunchSignal(SignalCommand.LEFT);
+        else if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
+            LaunchSignal(SignalCommand.RIGHT);
+        else if (Input.GetKeyUp(KeyCode.Space))
+            LaunchSignal(SignalCommand.SHIELD);
 	}
-
-    public void LaunchSignal(int sigCommand)
-    {
-        LaunchSignal((SignalCommand)sigCommand);
-    }
 
     public void LaunchSignal(SignalCommand sigCommand)
     {
         if (canSendSignal)
         {
-            canSendSignal = false;
-            switch (sigCommand)
-            {
-                case SignalCommand.LEFT:
-                    if (LeftSignal)
-                        Instantiate(LeftSignal, this.transform.position, Quaternion.identity, this.transform);
-                    break;
-                case SignalCommand.RIGHT:
-                    if (RightSignal)
-                        Instantiate(RightSignal, this.transform.position, Quaternion.identity, this.transform);
-                    break;
-                case SignalCommand.SHIELD:
-                    if (ShieldSignal)
-                        Instantiate(ShieldSignal, this.transform.position, Quaternion.identity, this.transform);
-                    break;
-            }
+            nextSignalToSend = sigCommand;
 
             _animator.Play("send");
-            float time = _animator.GetCurrentAnimatorStateInfo(0).length;
-            Invoke("RemoveCoolDown", time);
+
+            Invoke("RemoveCoolDown", 0.9f);
+
+            canSendSignal = false;
+
+            Invoke("FireSignal", 0.7f);
+        }
+    }
+
+    void FireSignal()
+    {
+        switch (nextSignalToSend)
+        {
+            case SignalCommand.LEFT:
+                if (LeftSignal)
+                    Instantiate(LeftSignal, this.transform.position + new Vector3(0.1f, 0.0f, 0.0f), Quaternion.identity, this.transform);
+                break;
+            case SignalCommand.RIGHT:
+                if (RightSignal)
+                    Instantiate(RightSignal, this.transform.position + new Vector3(0.1f, 0.0f, 0.0f), Quaternion.identity, this.transform);
+                break;
+            case SignalCommand.SHIELD:
+                if (ShieldSignal)
+                    Instantiate(ShieldSignal, this.transform.position + new Vector3(0.1f, 0.0f, 0.0f), Quaternion.identity, this.transform);
+                break;
         }
     }
 
