@@ -5,8 +5,6 @@ using UnityEngine;
 public class WorldManager : MonoBehaviour
 {
     private static WorldManager worldManager;
-
-    [HideInInspector]
     public GameObject ship;
 
     public static WorldManager instance
