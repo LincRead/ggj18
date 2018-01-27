@@ -19,7 +19,6 @@ public class Planet {
     }
 
     public void Update(Transform shipTransform) {
-        Debug.Log("Planet:: Update- ship in range: "  + IsSpaceshipInGravWell(shipTransform.position));
         if (IsSpaceshipInRadius(shipTransform.position))
             Debug.LogAssertion("SHIP IS DEAD");
 
@@ -43,7 +42,6 @@ public class Planet {
     void PullShip(Vector3 shipTransform)
     {
         Vector2 gravVelocity = new Vector2(0, Mathf.Clamp((mass * radius) * (location.y - shipTransform.y), -5, 5));
-        Debug.Log("Pulling ship: " + gravVelocity.ToString());
         PlanetController.PullShip(gravVelocity, shipTransform);
     }
 }
