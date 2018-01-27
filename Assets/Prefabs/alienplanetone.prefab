@@ -80,7 +80,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 0
   obstaclePrefabs:
-  - {fileID: 1828101981560978, guid: 6dc016791b4ed0e4187f2c907a2e4070, type: 2}
+  - {fileID: 1383716046271898, guid: 25cf0efcdf8bff4459938969b415cd8c, type: 2}
+  - {fileID: 1420329779138378, guid: ecd54b6cc30fe5e48aa388e5109923cc, type: 2}
+  - {fileID: 1385259497895438, guid: df8227814d9a7c14c8a5c05a39f6b584, type: 2}
 --- !u!212 &212036077032623738
 SpriteRenderer:
   m_ObjectHideFlags: 1
