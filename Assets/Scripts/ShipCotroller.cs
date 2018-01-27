@@ -11,22 +11,28 @@ public class ShipCotroller : MonoBehaviour {
         shipTran = GetComponent<Transform>();
 	}
 
-    private void Update() {
-       // shipTran.position += Vector3.left;
 
-        if (Input.GetKeyDown("up"))
-        {
-            Debug.Log("up");
-            shipTran.position += Vector3.up * 1.0f;
-        }
+
+
+    private void Update() {
+       shipTran.position += Vector3.left * 0.01f;
 
         if (Input.GetKeyDown("down"))
         {
             Debug.Log("down");
+            shipTran.position += Vector3.up * 0.5f;
+        }
+
+        if (Input.GetKeyDown("up"))
+        {
+            Debug.Log("up");
+            shipTran.position += Vector3.down * 0.5f;
         }
 
 
     }
+
+    #region
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -41,8 +47,20 @@ public class ShipCotroller : MonoBehaviour {
 
     }
 
-    public void receiveSignal() {
+    public void receiveSignal(SignalCommand signalCommand) {
+        switch (signalCommand) {
 
+            case SignalCommand.LEFT:
+                Debug.Log("left");
+                break;
+            case SignalCommand.RIGHT:
+                Debug.Log("right");
+                break;
+            case SignalCommand.SHIELD:
+                Debug.Log("shield");
+                break;
+        }
     }
+    #endregion
 
 }
