@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Planet {
 
-    Vector3 location;
+    [HideInInspector]
+    public Vector3 location;
     float mass;
-    float radius;
+    [HideInInspector]
+    public float radius;
     float gravWellRadius;
     bool goalPlanet;
 
