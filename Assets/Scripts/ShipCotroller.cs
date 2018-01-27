@@ -52,11 +52,14 @@ public class ShipCotroller : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Signal hits Planet
         if (collision.gameObject.tag == "Signal")
         {
             receiveSignal(collision.gameObject.GetComponent<Signal>().signalCommand);
             Destroy(collision.gameObject);
         }
+
+        //Ship hits Finishing Planet
         if (collision.gameObject.tag == "Finish") {
             LeanTween.scale(gameObject, new Vector3(0, 0, 0), 2);
 
