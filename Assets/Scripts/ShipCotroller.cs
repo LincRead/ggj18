@@ -57,6 +57,10 @@ public class ShipCotroller : MonoBehaviour {
             receiveSignal(collision.gameObject.GetComponent<Signal>().signalCommand);
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.tag == "Finish") {
+            LeanTween.scale(gameObject, new Vector3(0, 0, 0), 2);
+
+        }
     }
 
     public void receiveSignal(SignalCommand signalCommand)
