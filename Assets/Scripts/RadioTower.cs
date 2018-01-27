@@ -37,6 +37,7 @@ public class RadioTower : MonoBehaviour {
     {
         if (canSendSignal)
         {
+            canSendSignal = false;
             switch (sigCommand)
             {
                 case SignalCommand.LEFT:
@@ -55,7 +56,6 @@ public class RadioTower : MonoBehaviour {
 
             _animator.Play("send");
             float time = _animator.GetCurrentAnimatorStateInfo(0).length;
-            canSendSignal = false;
             Invoke("RemoveCoolDown", time);
         }
     }

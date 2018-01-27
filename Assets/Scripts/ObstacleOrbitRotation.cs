@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleSatelliteRotation : MonoBehaviour {
+public class ObstacleOrbitRotation : MonoBehaviour {
 
     public float rotateSpeed;
     Transform parentTransform;
-    public GameObject satelitePrefab;
+    public GameObject[] obstaclePrefabs;
 
     public const int MIN_SATELITES = 10;
     public const int MAX_SATELITES = 30;
@@ -27,7 +27,7 @@ public class ObstacleSatelliteRotation : MonoBehaviour {
         int numSatelites = UnityEngine.Random.Range(MIN_SATELITES, MAX_SATELITES);
         for (int i = 0; i < numSatelites; i++)
         {
-            GameObject go = Instantiate(satelitePrefab, new Vector3(transform.position.x + UnityEngine.Random.Range(MIN_ORBIT_RANGE, MAX_ORBIT_RANGE), transform.position.y + UnityEngine.Random.Range(MIN_ORBIT_RANGE, MAX_ORBIT_RANGE)),
+            GameObject go = Instantiate(obstaclePrefabs[UnityEngine.Random.Range(0, obstaclePrefabs.Length)], new Vector3(transform.position.x + UnityEngine.Random.Range(MIN_ORBIT_RANGE, MAX_ORBIT_RANGE), transform.position.y + UnityEngine.Random.Range(MIN_ORBIT_RANGE, MAX_ORBIT_RANGE)),
                                                     Quaternion.identity, this.transform);
             rotateSpeed = UnityEngine.Random.Range(MIN_ORBIT_SPEED, MAX_ORBIT_SPEED);
             string rotateDirection = UnityEngine.Random.Range(0, 10) <= 5 ? "C" : "A";
@@ -40,7 +40,8 @@ public class ObstacleSatelliteRotation : MonoBehaviour {
     void Update () {
         foreach(Transform transform in this.GetComponentsInChildren<Transform>())
         {
-            if (transform.gameObject.name.Contains("S"))
+            Debug.Log(transform.gameObject.tag);
+            if (transform.gameObject.tag == "Planet")
                 continue;
             string rotateSpeedString = transform.gameObject.name.Substring(0, 1);
             rotateSpeed = float.Parse(rotateSpeedString);
