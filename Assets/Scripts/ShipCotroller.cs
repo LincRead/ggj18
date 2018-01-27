@@ -8,11 +8,12 @@ public class ShipCotroller : MonoBehaviour {
     public float velocityX = 1f;
     public float maxSpeed = 3f;
 
-    private ShipVisuals _shipVisuals;   
+    private ShipVisuals _shipVisuals;
+    private PlanetController pc;
 
     // Use this for initialization
     private void Start () {
-
+        pc = GameObject.FindObjectOfType<PlanetController>();
         transform.localScale = new Vector3(0,0,0);
         _shipVisuals = GetComponent<ShipVisuals>();
 
@@ -32,10 +33,16 @@ public class ShipCotroller : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)    
     {
-        if (collision.gameObject.tag == "planet")
+        if (collision.gameObject.tag == "Planet")
         {
-            Debug.Log("explode");
+            if(pc.IsWinPlanet(collision.gameObject))
+                //TODO: Start the win here
+            else
+                Debug.Log("explode"); //TODO Replace with explosion and game over
         }
+
+        if (collision.gameObject.tag == "Obstacle")
+            Debug.Log("Explode"); //TODO Replace with explosion and game over
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
