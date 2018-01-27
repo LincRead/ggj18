@@ -5,7 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class CameraPixel : MonoBehaviour
 {
-    [Range(.5f, 4f)]
+    [Range(1f, 4f)]
     public float pixelScale = 1;
 
     private int pixelsPerUnit = 100;

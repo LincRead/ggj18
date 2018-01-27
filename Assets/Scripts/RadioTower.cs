@@ -8,9 +8,11 @@ public class RadioTower : MonoBehaviour {
     public GameObject RightSignal;
     public GameObject ShieldSignal;
 
+    Animator _animator;
+
 	// Use this for initialization
 	void Start () {
-		
+        _animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -28,14 +30,19 @@ public class RadioTower : MonoBehaviour {
         switch (sigCommand)
         {
             case SignalCommand.LEFT:
-                Instantiate(LeftSignal, this.transform);
+                if(LeftSignal)
+                    Instantiate(LeftSignal, this.transform);
                 break;
             case SignalCommand.RIGHT:
-                Instantiate(RightSignal, this.transform);
+                if (RightSignal)
+                    Instantiate(RightSignal, this.transform);
                 break;
             case SignalCommand.SHIELD:
-                Instantiate(ShieldSignal, this.transform);
+                if(ShieldSignal)
+                    Instantiate(ShieldSignal, this.transform);
                 break;
         }
+
+        _animator.Play("send");
     }
 }
