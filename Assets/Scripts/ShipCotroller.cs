@@ -9,11 +9,11 @@ public class ShipCotroller : MonoBehaviour {
 
     // Use this for initialization
     private void Start () {
-        veocity.x = +speed;
+        veocity.x = +1f;
     }
 
     private void Update() {
-      //  Debug.Log(veocity.y);
+       Debug.Log(veocity.y);
         
         if (Input.GetKeyDown("down"))
         {
