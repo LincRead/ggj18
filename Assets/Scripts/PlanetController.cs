@@ -13,12 +13,14 @@ public class PlanetController : MonoBehaviour {
     const int MAX_RADIUS = 5;
     List<Planet> planets;
     Transform shipTransform;
-
+    public static PlanetController current;
     // Use this for initialization
     void Start () {
         planets = new List<Planet>();
-        CreatePlanets();
+        planets.Add(new Planet(new Vector3(5, 10, 0), 5, 10));
+        //CreatePlanets();
         shipTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        current = this;
 	}
 	
 	// Update is called once per frame
@@ -31,7 +33,7 @@ public class PlanetController : MonoBehaviour {
 
     public static void PullShip(Vector2 pullVector, Vector3 shipTransformPos)
     {
-        shipTransformPos += new Vector3(pullVector.x * Time.deltaTime, pullVector.y * Time.deltaTime, 0);
+        PlanetController.current.shipTransform.position += new Vector3(pullVector.x * Time.deltaTime, pullVector.y * Time.deltaTime, 0);
     }
 
     void CreatePlanets()
