@@ -7,9 +7,14 @@ public class ShipCotroller : MonoBehaviour {
     public float thrustPower = 1f;
     public float velocityX = 1f;
     public float maxSpeed = 3f;
+    public float shieldPower = 10f;
+    public float shieldUseCost = 1f;
+    public float shieldActiveTime = 1f;
 
     private ShipVisuals _shipVisuals;
     private PlanetController pc;
+    private bool isShieldActive = false;
+
 
     // Use this for initialization
     private void Start () {
@@ -35,13 +40,13 @@ public class ShipCotroller : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Planet")
         {
-            if(pc.IsWinPlanet(collision.gameObject))
-                //TODO: Start the win here
+            if (pc.IsWinPlanet(collision.gameObject)) ;
+            //TODO: Start the win here
             else
                 Debug.Log("explode"); //TODO Replace with explosion and game over
         }
 
-        if (collision.gameObject.tag == "Obstacle")
+        if (collision.gameObject.tag == "Obstacle" && !isShieldActive)
             Debug.Log("Explode"); //TODO Replace with explosion and game over
     }
 
@@ -91,10 +96,17 @@ public class ShipCotroller : MonoBehaviour {
                 break;
 
             case SignalCommand.SHIELD:
+                isShieldActive = true;
+                shieldPower -= shieldUseCost;
+                Invoke("TurnOffShield", shieldActiveTime);
                 Debug.Log("shield");
                 break;
         }
     }
 
+    void TurnOffShield()
+    {
+        isShieldActive = false;
+    }
 }
 
