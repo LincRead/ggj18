@@ -30,6 +30,11 @@ public class RadioTower : MonoBehaviour {
             LaunchSignal(SignalCommand.SHIELD);
 	}
 
+    public void LaunchSignal(int sigCommand)
+    {
+        LaunchSignal((SignalCommand)sigCommand);
+    }
+
     public void LaunchSignal(SignalCommand sigCommand)
     {
         if (canSendSignal)
