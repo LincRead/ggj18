@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorldManager : MonoBehaviour
 {
     private static WorldManager worldManager;
-    private GameObject ship;
+    public GameObject ship;
 
     public static WorldManager instance
     {
