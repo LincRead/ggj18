@@ -15,6 +15,9 @@ public class ShipCotroller : MonoBehaviour {
     private PlanetController pc;
     private bool isShieldActive = false;
 
+    public AudioSource audio_explosion;
+    public AudioSource audio_thrust;
+
     public GameObject explosion;
 
     // Use this for initialization
@@ -22,6 +25,9 @@ public class ShipCotroller : MonoBehaviour {
         pc = GameObject.FindObjectOfType<PlanetController>();
         transform.localScale = new Vector3(0,0,0);
         _shipVisuals = GetComponent<ShipVisuals>();
+
+        audio_explosion = GetComponent<AudioSource>();
+        audio_thrust = GetComponent<AudioSource>();
 
         Invoke("Init", 0f);
     }
@@ -77,6 +83,7 @@ public class ShipCotroller : MonoBehaviour {
 
     void Die()
     {
+        audio_explosion.Play();
         veocity.x = 0;
         veocity.y = 0;
         GetComponent<Collider2D>().enabled = false;
