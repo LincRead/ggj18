@@ -7,9 +7,15 @@ public class ShipCotroller : MonoBehaviour {
     public float thrustPower = 1f;
     public float initVelocityX = 1f;
     public float maxSpeed = 3f;
+
     public float shieldPower = 10f;
+
+    [HideInInspector]
+    public float shieldPowerCurrent = 0;
+
     public float shieldUseCost = 1f;
     public float shieldActiveTime = 1f;
+    public float shieldRegenSpeed = 0.1f;
 
     private ShipVisuals _shipVisuals;
     private ShieldVisuals shieldVisuals;
@@ -33,6 +39,8 @@ public class ShipCotroller : MonoBehaviour {
         _shipVisuals = GetComponent<ShipVisuals>();
         shieldVisuals = GetComponentInChildren<ShieldVisuals>();
 
+        shieldPowerCurrent = shieldPower;
+
         audio_explosion = GetComponent<AudioSource>();
         audio_thrust = GetComponent<AudioSource>();
 
@@ -51,7 +59,12 @@ public class ShipCotroller : MonoBehaviour {
         {
             transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
 
-            if(transform.position.y > 2.9f || transform.position.y < - 2.9f || transform.position.x > finalPlanet.transform.position.x)
+            shieldPowerCurrent += shieldRegenSpeed * Time.deltaTime;
+
+            if (shieldPowerCurrent > shieldPower)
+                shieldPowerCurrent = shieldPower;
+
+            if (transform.position.y > 2.9f || transform.position.y < - 2.9f || transform.position.x > finalPlanet.transform.position.x)
             {
                 audio_shipOOB.Play();
                 Die();
@@ -160,12 +173,12 @@ public class ShipCotroller : MonoBehaviour {
                 break;
 
             case SignalCommand.SHIELD:
-                if ((shieldPower - shieldUseCost) >= 0)
+                if ((shieldPowerCurrent - shieldUseCost) >= 0)
                 {
                     audio_shieldActivate.Play();
                     isShieldActive = true;
                     shieldVisuals.ActivateShield(shieldActiveTime);
-                    shieldPower -= shieldUseCost;
+                    shieldPowerCurrent -= shieldUseCost;
                     Invoke("TurnOffShield", shieldActiveTime);                  
                 }
                 else

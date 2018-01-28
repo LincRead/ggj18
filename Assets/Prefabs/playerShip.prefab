@@ -194,7 +194,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -274,7 +274,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -354,7 +354,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -434,7 +434,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -514,7 +514,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -575,15 +575,16 @@ MonoBehaviour:
   thrustPower: 0.1
   initVelocityX: 0.25
   maxSpeed: 2
-  shieldPower: 10
+  shieldPower: 5
   shieldUseCost: 1
-  shieldActiveTime: 1
+  shieldActiveTime: 3
   audio_explosion: {fileID: 82279658873516450}
   audio_thrust: {fileID: 82570973452376426}
   audio_shieldActivate: {fileID: 82544877254817924}
   audio_shieldLowPower: {fileID: 82419301070087424}
   audio_shipOOB: {fileID: 82592849855856810}
   explosion: {fileID: 1698543939809126, guid: 3e4d7a124a7ab3e49a7860746baa89f7, type: 2}
+  finalPlanet: {fileID: 0}
 --- !u!114 &114781282398406014
 MonoBehaviour:
   m_ObjectHideFlags: 1
