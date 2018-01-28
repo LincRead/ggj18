@@ -10,20 +10,18 @@ public class ObstacleOrbitRotation : MonoBehaviour {
     public GameObject[] obstaclePrefabs;
     PlanetController pc;
 
-    public const int MIN_SATELITES = 10;
-    public const int MAX_SATELITES = 30;
-    public int MIN_ORBIT_RANGE = -50;
-    public int MAX_ORBIT_RANGE = 50;
-    public const int MIN_ORBIT_SPEED = 3;
-    public const int MAX_ORBIT_SPEED = 10;
+    public const int MIN_SATELITES = 5;
+    public const int MAX_SATELITES = 10;
+    private float MIN_ORBIT_RANGE = -3;
+    private float MAX_ORBIT_RANGE = 3;
+    private const float MIN_ORBIT_SPEED = 3;
+    private const float MAX_ORBIT_SPEED = 5;
 
     // Use this for initialization
     void Start () {
         parentTransform = this.transform;
         
         pc = GameObject.FindObjectOfType<PlanetController>();
-        MIN_ORBIT_RANGE = 5 - (int)pc.planetSpacing;
-        MAX_ORBIT_RANGE = (int)pc.planetSpacing - 5;
         SetupSatelites();
     }
 

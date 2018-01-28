@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class PlanetController : MonoBehaviour {
 
@@ -50,13 +49,15 @@ public class PlanetController : MonoBehaviour {
 
     void CreatePlanet(float xIndex)
     {
-        Planet planet = new Planet(new Vector3(xIndex, UnityEngine.Random.Range(0, 10), 0),
+        Vector3 ranpos = new Vector3(xIndex, -3 + (Random.value * 6), 0);
+
+        Planet planet = new Planet(ranpos,
                                 UnityEngine.Random.Range(MIN_MASS, MAX_MASS),
                                 UnityEngine.Random.Range(MIN_RADIUS, MAX_RADIUS));
         GameObject planetGO = Instantiate(planetPrefabs[(int)planet.radius - 1], planet.location, Quaternion.identity, this.transform);
         planets.Add(planetGO, planet );
 
-        RadarManager.instance.AddPlanet(planetGO.transform);
+        //RadarManager.instance.AddPlanet(planetGO.gameObject.transform);
     }
 
     public bool IsWinPlanet(GameObject go_planet)

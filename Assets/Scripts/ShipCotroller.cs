@@ -88,7 +88,7 @@ public class ShipCotroller : MonoBehaviour {
             Die();
         }
 
-        if (collision.gameObject.tag == "Obstacle" && !isShieldActive)
+        else if (collision.gameObject.tag == "Obstacle" && !isShieldActive)
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             audio_explosion.Play();

@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dbb825b650bfd43af5941dadf99290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
   signalCommand: 0
   signalColor: {r: 0, g: 1, b: 0.08965516, a: 1}
 --- !u!212 &212871496398826464
