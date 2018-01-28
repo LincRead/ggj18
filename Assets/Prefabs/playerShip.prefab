@@ -61,7 +61,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460720992767092}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -194,7 +194,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -274,7 +274,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -354,7 +354,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -377,7 +377,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9f87670170642c248be5b55d2cb8662e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -434,7 +434,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -514,7 +514,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -575,17 +575,18 @@ MonoBehaviour:
   thrustPower: 0.1
   initVelocityX: 0.25
   maxSpeed: 2
-  shieldPower: 10
-  shieldUseCost: 1
+  shieldPower: 5
+  shieldPowerCurrent: 0
+  shieldUseCost: 2
   shieldActiveTime: 3
+  shieldRegenSpeed: 0.05
   audio_explosion: {fileID: 82279658873516450}
   audio_thrust: {fileID: 82570973452376426}
   audio_shieldActivate: {fileID: 82544877254817924}
   audio_shieldLowPower: {fileID: 82419301070087424}
   audio_shipOOB: {fileID: 82592849855856810}
   explosion: {fileID: 1698543939809126, guid: 3e4d7a124a7ab3e49a7860746baa89f7, type: 2}
-  finalPlanet: {fileID: 1377266434516056, guid: bf546d35d0cebf34ab0a1be4f4e46f15,
-    type: 2}
+  finalPlanet: {fileID: 0}
 --- !u!114 &114781282398406014
 MonoBehaviour:
   m_ObjectHideFlags: 1
