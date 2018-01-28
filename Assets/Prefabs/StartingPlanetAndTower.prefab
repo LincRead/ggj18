@@ -113,7 +113,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 829abca9edb5c2c4e91cf96554ee20bc, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -233,7 +233,7 @@ MonoBehaviour:
     type: 2}
   ShieldSignal: {fileID: 1759209138119516, guid: bb52b104ac43e994f9b0e246a3c5098e,
     type: 2}
-  sendSound: {fileID: 82344598213655686}
+  audio_sendSound: {fileID: 0}
   cooldown: 0.5
   canSendSignal: 0
 --- !u!212 &212151371023209004
