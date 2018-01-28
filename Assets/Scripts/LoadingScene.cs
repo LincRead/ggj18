@@ -18,7 +18,7 @@ public class LoadingScene : MonoBehaviour
     {
         isLoading = true;
 
-        asynchLoadScene = SceneManager.LoadSceneAsync("main");
+        asynchLoadScene = SceneManager.LoadSceneAsync("dev_brig");
         asynchLoadScene.allowSceneActivation = false;
 
         _loadingIndicator = GameObject.Instantiate(
