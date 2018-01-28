@@ -20,14 +20,14 @@ public class arrow : MonoBehaviour {
     public void Bounce()
     {
         if (directionBoolean) {
-            transform.Translate(Vector3.left * Time.deltaTime / 2);
+            transform.Translate(Vector3.left * Time.deltaTime / 4);
             counter += 1;
-            if (counter > 20) {
+            if (counter > 30) {
                 directionBoolean = false;
             }
 
         } else if (directionBoolean == false) {
-            transform.Translate(Vector3.right * Time.deltaTime / 2);
+            transform.Translate(Vector3.right * Time.deltaTime / 4);
             counter -= 1;
             if (counter < 0) {
                 directionBoolean = true;
