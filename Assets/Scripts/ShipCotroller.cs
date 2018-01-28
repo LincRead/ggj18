@@ -64,9 +64,16 @@ public class ShipCotroller : MonoBehaviour {
             if (shieldPowerCurrent > shieldPower)
                 shieldPowerCurrent = shieldPower;
 
-            if (transform.position.y > 2.9f || transform.position.y < - 2.9f || transform.position.x > finalPlanet.transform.position.x)
+            if (transform.position.y > 2.9f || transform.position.y < -2.9f)
             {
                 audio_shipOOB.Play();
+                Die();
+            }
+
+            else if (transform.position.x > finalPlanet.transform.position.x)
+            {
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                audio_explosion.Play();
                 Die();
             }
         }
@@ -77,12 +84,14 @@ public class ShipCotroller : MonoBehaviour {
         if (collision.gameObject.tag == "Planet")
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
+            audio_explosion.Play();
             Die();
         }
 
         if (collision.gameObject.tag == "Obstacle" && !isShieldActive)
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
+            audio_explosion.Play();
             Die();
         }
         else if (collision.gameObject.tag == "Obstacle" && isShieldActive)

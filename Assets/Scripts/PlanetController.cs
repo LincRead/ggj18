@@ -55,6 +55,8 @@ public class PlanetController : MonoBehaviour {
                                 UnityEngine.Random.Range(MIN_RADIUS, MAX_RADIUS));
         GameObject planetGO = Instantiate(planetPrefabs[(int)planet.radius - 1], planet.location, Quaternion.identity, this.transform);
         planets.Add(planetGO, planet );
+
+        RadarManager.instance.AddPlanet(planetGO.transform);
     }
 
     public bool IsWinPlanet(GameObject go_planet)
