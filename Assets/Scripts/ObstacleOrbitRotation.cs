@@ -48,7 +48,7 @@ public class ObstacleOrbitRotation : MonoBehaviour {
                 continue;
             string rotateSpeedString = transform.gameObject.name.Substring(0, 1);
             rotateSpeed = float.Parse(rotateSpeedString);
-            if(transform.gameObject.name.Substring(1,1) == "C")
+            if(transform.gameObject.name.EndsWith("C"))
                 transform.RotateAround(parentTransform.position, new Vector3(0, 0, 1), rotateSpeed * Time.deltaTime);
             else
                 transform.RotateAround(parentTransform.position, new Vector3(0, 0, -1), rotateSpeed * Time.deltaTime);
