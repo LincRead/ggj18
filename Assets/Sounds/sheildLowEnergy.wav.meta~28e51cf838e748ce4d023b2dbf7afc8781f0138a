@@ -1,6 +1,11 @@
 fileFormatVersion: 2
-guid: d4591c690ee6bff429465d314b9fa36a
-timeCreated: 1517106101
+<<<<<<< HEAD:Assets/Sounds/sheildLowEnergy.wav.meta
+guid: 3a1de13161a540d4c9ae5186d76b657a
+timeCreated: 1517106360
+=======
+guid: 8e0c0e1f96e82a74cac421f2157a3959
+timeCreated: 1517106261
+>>>>>>> ccec5e9f275bb0d3a051a8236a39809f34ed2509:Assets/Sounds/sheildLowEnergy.wav.meta
 licenseType: Free
 AudioImporter:
   externalObjects: {}
