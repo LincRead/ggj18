@@ -13,6 +13,8 @@ public class Signal : MonoBehaviour
 
     public Color signalColor;
 
+    bool fadingOut = false;
+
     // Use this for initialization
     void Start()
     {
@@ -25,13 +27,22 @@ public class Signal : MonoBehaviour
     {
         if(WorldManager.instance.gameover || WorldManager.instance.enteredFinishPlanet)
         {
-            Destroy(gameObject);
-            return;
+            if(!fadingOut)
+            {
+                Invoke("Destroy", 1f);
+                LeanTween.alpha(gameObject, 0.0f, 1f);
+                fadingOut = true;
+            }
         }
 
         Vector3 currPosition = transform.position;
         Vector3 shipPosition = WorldManager.instance.ship.transform.position;
         transform.position = Vector3.MoveTowards(currPosition, shipPosition, speed * Time.deltaTime);
+    }
+
+    void Destroy()
+    {
+
     }
 
     public void DestroyAfterCommand()

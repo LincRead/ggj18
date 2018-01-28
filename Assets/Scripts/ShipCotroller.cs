@@ -34,7 +34,15 @@ public class ShipCotroller : MonoBehaviour {
 
     private void Update()
     {
-        transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
+        if(veocity.x != 0 || veocity.y != 0)
+        {
+            transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
+
+            if(transform.position.y > 2.9f || transform.position.y < - 2.9f)
+            {
+                Die();
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)    
