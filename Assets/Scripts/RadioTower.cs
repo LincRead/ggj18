@@ -8,6 +8,8 @@ public class RadioTower : MonoBehaviour {
     public GameObject RightSignal;
     public GameObject ShieldSignal;
 
+    public AudioSource sendSound;
+
     public float cooldown = 0.5f;
 
     public bool canSendSignal = false;
@@ -20,6 +22,7 @@ public class RadioTower : MonoBehaviour {
     {
         _animator = GetComponent<Animator>();
         Invoke("Activate", 3.5f);
+        sendSound = GetComponent<AudioSource>();
 	}
 
     void Activate()
@@ -61,6 +64,9 @@ public class RadioTower : MonoBehaviour {
             nextSignalToSend = sigCommand;
 
             _animator.Play("send");
+
+            Debug.Log("play");
+            sendSound.Play();
 
             Invoke("RemoveCoolDown", cooldown);
 
