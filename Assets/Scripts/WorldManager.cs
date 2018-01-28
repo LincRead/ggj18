@@ -42,6 +42,13 @@ public class WorldManager : MonoBehaviour
         
     }
 
+    public void GameOver()
+    {
+        gameover = true;
+
+        Invoke("RestartGame", 1.5f);
+    }
+
     void OnEnable()
     {
         ship = GameObject.FindGameObjectWithTag("Player");
