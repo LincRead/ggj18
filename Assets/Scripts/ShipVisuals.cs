@@ -46,11 +46,6 @@ public class ShipVisuals : MonoBehaviour {
         _animator.Play("right");
     }
 
-    public void ActivateShield()
-    {
-        _animator.Play("shield");
-    }
-
     public void PlayExplosion()
     {
         if(explosion)
