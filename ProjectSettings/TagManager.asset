@@ -54,3 +54,6 @@ TagManager:
   - name: Effects
     uniqueID: 332189515
     locked: 0
+  - name: HUD
+    uniqueID: 4025461905
+    locked: 0

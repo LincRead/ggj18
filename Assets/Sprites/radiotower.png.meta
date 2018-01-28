@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d76ab03c2f30e2a4a9939bfd1d8c989d
-timeCreated: 1517047438
+timeCreated: 1517093077
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,13 @@ TextureImporter:
     21300020: radiotower_10
     21300022: radiotower_11
     21300024: radiotower_12
+    21300026: radiotower_13
+    21300028: radiotower_14
+    21300030: radiotower_15
+    21300032: radiotower_16
+    21300034: radiotower_17
+    21300036: radiotower_18
+    21300038: radiotower_19
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -107,7 +114,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 98
+        y: 196
         width: 45
         height: 49
       alignment: 9
@@ -121,7 +128,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 45
-        y: 98
+        y: 196
         width: 45
         height: 49
       alignment: 9
@@ -135,7 +142,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 90
-        y: 98
+        y: 196
         width: 45
         height: 49
       alignment: 9
@@ -149,7 +156,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 135
-        y: 98
+        y: 196
         width: 45
         height: 49
       alignment: 9
@@ -162,8 +169,8 @@ TextureImporter:
       name: radiotower_4
       rect:
         serializedVersion: 2
-        x: 180
-        y: 98
+        x: 0
+        y: 147
         width: 45
         height: 49
       alignment: 9
@@ -174,6 +181,104 @@ TextureImporter:
       tessellationDetail: 0
     - serializedVersion: 2
       name: radiotower_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 147
+        width: 45
+        height: 49
+      alignment: 9
+      pivot: {x: 0.75, y: 0.65}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: radiotower_6
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 147
+        width: 45
+        height: 49
+      alignment: 9
+      pivot: {x: 0.75, y: 0.65}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: radiotower_7
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 147
+        width: 45
+        height: 49
+      alignment: 9
+      pivot: {x: 0.75, y: 0.65}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: radiotower_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 98
+        width: 45
+        height: 49
+      alignment: 9
+      pivot: {x: 0.75, y: 0.65}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: radiotower_9
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 98
+        width: 45
+        height: 49
+      alignment: 9
+      pivot: {x: 0.75, y: 0.65}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: radiotower_10
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 98
+        width: 45
+        height: 49
+      alignment: 9
+      pivot: {x: 0.75, y: 0.65}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: radiotower_11
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 98
+        width: 45
+        height: 49
+      alignment: 9
+      pivot: {x: 0.75, y: 0.65}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: radiotower_12
       rect:
         serializedVersion: 2
         x: 0
@@ -187,7 +292,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: radiotower_6
+      name: radiotower_13
       rect:
         serializedVersion: 2
         x: 45
@@ -201,7 +306,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: radiotower_7
+      name: radiotower_14
       rect:
         serializedVersion: 2
         x: 90
@@ -215,7 +320,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: radiotower_8
+      name: radiotower_15
       rect:
         serializedVersion: 2
         x: 135
@@ -229,21 +334,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: radiotower_9
-      rect:
-        serializedVersion: 2
-        x: 180
-        y: 49
-        width: 45
-        height: 49
-      alignment: 9
-      pivot: {x: 0.75, y: 0.65}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: radiotower_10
+      name: radiotower_16
       rect:
         serializedVersion: 2
         x: 0
@@ -257,7 +348,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: radiotower_11
+      name: radiotower_17
       rect:
         serializedVersion: 2
         x: 45
@@ -271,10 +362,24 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: radiotower_12
+      name: radiotower_18
       rect:
         serializedVersion: 2
         x: 90
+        y: 0
+        width: 45
+        height: 49
+      alignment: 9
+      pivot: {x: 0.75, y: 0.65}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: radiotower_19
+      rect:
+        serializedVersion: 2
+        x: 135
         y: 0
         width: 45
         height: 49

@@ -82,7 +82,9 @@ MonoBehaviour:
   obstaclePrefabs:
   - {fileID: 1383716046271898, guid: 25cf0efcdf8bff4459938969b415cd8c, type: 2}
   - {fileID: 1420329779138378, guid: ecd54b6cc30fe5e48aa388e5109923cc, type: 2}
-  - {fileID: 1385259497895438, guid: df8227814d9a7c14c8a5c05a39f6b584, type: 2}
+  - {fileID: 1059294294209078, guid: bf7a83e10eeb19c44bcd6c8be88008cc, type: 2}
+  MIN_ORBIT_RANGE: -50
+  MAX_ORBIT_RANGE: 50
 --- !u!212 &212036077032623738
 SpriteRenderer:
   m_ObjectHideFlags: 1

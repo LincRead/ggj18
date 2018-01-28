@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WorldManager : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class WorldManager : MonoBehaviour
 
     [HideInInspector]
     public GameObject ship;
+
+    public bool enteredFinishPlanet = false;
+    public bool won = false;
+    public bool gameover = false;
 
     public static WorldManager instance
     {
@@ -40,5 +45,10 @@ public class WorldManager : MonoBehaviour
     void OnEnable()
     {
         ship = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("loading");
     }
 }
