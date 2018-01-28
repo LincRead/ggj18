@@ -35,11 +35,21 @@ public class MinimapObject : MonoBehaviour {
 
     bool IsOutsideMap()
     {
+        float xoffset = Camera.main.transform.position.x * 1.5f;
+        float yOffset = Camera.main.transform.position.y * 1.5f;
+        float xBound = Camera.main.transform.position.x + xoffset;
+        float yBound = Camera.main.transform.position.y + yOffset;
+        if (_t.position.x < 0 - xBound || _t.position.x > xBound || _t.position.y < 0 - yBound || _t.position.y > yBound)
+        {
+            return true;
+        }
         return false;
     }
 
     void UpdatePosition()
     {
-
+        float xoffset = Camera.main.transform.position.x *  0.05f;
+        float yOffset = Camera.main.transform.position.y * 0.05f;
+        _t.position = new Vector3(_t.position.x - xoffset, _t.position.y - yOffset);
     }
 }
