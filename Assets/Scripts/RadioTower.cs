@@ -35,7 +35,7 @@ public class RadioTower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(WorldManager.instance.enteredFinishPlanet)
+        if(WorldManager.instance.enteredFinishPlanet || WorldManager.instance.gameover)
         {
             canSendSignal = false;
             return;

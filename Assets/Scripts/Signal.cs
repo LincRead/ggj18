@@ -23,6 +23,12 @@ public class Signal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(WorldManager.instance.gameover || WorldManager.instance.enteredFinishPlanet)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Vector3 currPosition = transform.position;
         Vector3 shipPosition = WorldManager.instance.ship.transform.position;
         transform.position = Vector3.MoveTowards(currPosition, shipPosition, speed * Time.deltaTime);
