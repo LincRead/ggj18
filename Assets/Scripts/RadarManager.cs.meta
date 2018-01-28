@@ -1,11 +1,17 @@
 fileFormatVersion: 2
 guid: 729c66527c6516849a63a89521568cee
-timeCreated: 1517109014
+timeCreated: 1517112053
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - planetObjPrefab: {fileID: 1225295684813464, guid: 2ea820119c9ecfb47b341fea885a8f63,
+      type: 2}
+  - obstacleObjPrefab: {fileID: 1464269726193438, guid: c90e2a19c8a57f046ad3bdcfdd04c6ed,
+      type: 2}
+  - playerObjPrefab: {fileID: 1327687180053570, guid: 12a1a51707205a941bdc3f79d17aed96,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
