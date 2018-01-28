@@ -1,16 +1,11 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 134d86132f1e4e14fb418279e1e8a4d6
-timeCreated: 1517106101
+<<<<<<< HEAD:Assets/Sounds/sheildLowEnergy.wav.meta
+guid: 3a1de13161a540d4c9ae5186d76b657a
+timeCreated: 1517106360
 =======
-<<<<<<< HEAD
-guid: 7e4cb423c6222424188498c1c4d343aa
-timeCreated: 1517106361
-=======
-guid: 7fc75ae430e52aa4ebc6f86f5acfac57
+guid: 8e0c0e1f96e82a74cac421f2157a3959
 timeCreated: 1517106261
->>>>>>> ccec5e9f275bb0d3a051a8236a39809f34ed2509
->>>>>>> 28e51cf838e748ce4d023b2dbf7afc8781f0138a
+>>>>>>> ccec5e9f275bb0d3a051a8236a39809f34ed2509:Assets/Sounds/sheildLowEnergy.wav.meta
 licenseType: Free
 AudioImporter:
   externalObjects: {}

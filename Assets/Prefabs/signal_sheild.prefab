@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   signalCommand: 2
+  signalColor: {r: 0, g: 0.7931032, b: 1, a: 1}
 --- !u!212 &212210234518153614
 SpriteRenderer:
   m_ObjectHideFlags: 1

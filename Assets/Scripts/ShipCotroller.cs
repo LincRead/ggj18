@@ -7,24 +7,39 @@ public class ShipCotroller : MonoBehaviour {
     public float thrustPower = 1f;
     public float initVelocityX = 1f;
     public float maxSpeed = 3f;
+
     public float shieldPower = 10f;
+
+    [HideInInspector]
+    public float shieldPowerCurrent = 0;
+
     public float shieldUseCost = 1f;
     public float shieldActiveTime = 1f;
+    public float shieldRegenSpeed = 0.1f;
 
     private ShipVisuals _shipVisuals;
+    private ShieldVisuals shieldVisuals;
     private PlanetController pc;
     private bool isShieldActive = false;
 
     public AudioSource audio_explosion;
     public AudioSource audio_thrust;
+    public AudioSource audio_shieldActivate;
+    public AudioSource audio_shieldLowPower;
+    public AudioSource audio_shipOOB;
 
     public GameObject explosion;
+
+    public GameObject finalPlanet;
 
     // Use this for initialization
     private void Start () {
         pc = GameObject.FindObjectOfType<PlanetController>();
         transform.localScale = new Vector3(0,0,0);
         _shipVisuals = GetComponent<ShipVisuals>();
+        shieldVisuals = GetComponentInChildren<ShieldVisuals>();
+
+        shieldPowerCurrent = shieldPower;
 
         audio_explosion = GetComponent<AudioSource>();
         audio_thrust = GetComponent<AudioSource>();
@@ -44,8 +59,21 @@ public class ShipCotroller : MonoBehaviour {
         {
             transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
 
-            if(transform.position.y > 2.9f || transform.position.y < - 2.9f)
+            shieldPowerCurrent += shieldRegenSpeed * Time.deltaTime;
+
+            if (shieldPowerCurrent > shieldPower)
+                shieldPowerCurrent = shieldPower;
+
+            if (transform.position.y > 2.9f || transform.position.y < -2.9f)
             {
+                audio_shipOOB.Play();
+                Die();
+            }
+
+            else if (transform.position.x > finalPlanet.transform.position.x)
+            {
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                audio_explosion.Play();
                 Die();
             }
         }
@@ -56,12 +84,21 @@ public class ShipCotroller : MonoBehaviour {
         if (collision.gameObject.tag == "Planet")
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
+            audio_explosion.Play();
             Die();
         }
 
         if (collision.gameObject.tag == "Obstacle" && !isShieldActive)
         {
-            Debug.Log("Explode"); //TODO Replace with explosion and game over
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            audio_explosion.Play();
+            Die();
+        }
+        else if (collision.gameObject.tag == "Obstacle" && isShieldActive)
+        {
+            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+            audio_explosion.Play();
+            Destroy(collision.gameObject);
         }
     }
 
@@ -145,10 +182,18 @@ public class ShipCotroller : MonoBehaviour {
                 break;
 
             case SignalCommand.SHIELD:
-                isShieldActive = true;
-                shieldPower -= shieldUseCost;
-                Invoke("TurnOffShield", shieldActiveTime);
-                Debug.Log("shield");
+                if ((shieldPowerCurrent - shieldUseCost) >= 0)
+                {
+                    audio_shieldActivate.Play();
+                    isShieldActive = true;
+                    shieldVisuals.ActivateShield(shieldActiveTime);
+                    shieldPowerCurrent -= shieldUseCost;
+                    Invoke("TurnOffShield", shieldActiveTime);                  
+                }
+                else
+                {
+                    audio_shieldLowPower.Play();
+                }
                 break;
         }
     }
