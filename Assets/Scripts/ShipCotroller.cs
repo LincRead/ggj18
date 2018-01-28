@@ -12,6 +12,7 @@ public class ShipCotroller : MonoBehaviour {
     public float shieldActiveTime = 1f;
 
     private ShipVisuals _shipVisuals;
+    private ShieldVisuals shieldVisuals;
     private PlanetController pc;
     private bool isShieldActive = false;
 
@@ -25,6 +26,7 @@ public class ShipCotroller : MonoBehaviour {
         pc = GameObject.FindObjectOfType<PlanetController>();
         transform.localScale = new Vector3(0,0,0);
         _shipVisuals = GetComponent<ShipVisuals>();
+        shieldVisuals = GetComponentInChildren<ShieldVisuals>();
 
         audio_explosion = GetComponent<AudioSource>();
         audio_thrust = GetComponent<AudioSource>();
@@ -61,7 +63,14 @@ public class ShipCotroller : MonoBehaviour {
 
         if (collision.gameObject.tag == "Obstacle" && !isShieldActive)
         {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Die();
             Debug.Log("Explode"); //TODO Replace with explosion and game over
+        }
+        else if (collision.gameObject.tag == "Obstacle" && isShieldActive)
+        {
+            Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
         }
     }
 
@@ -146,6 +155,7 @@ public class ShipCotroller : MonoBehaviour {
 
             case SignalCommand.SHIELD:
                 isShieldActive = true;
+                shieldVisuals.ActivateShield(shieldActiveTime);
                 shieldPower -= shieldUseCost;
                 Invoke("TurnOffShield", shieldActiveTime);
                 Debug.Log("shield");

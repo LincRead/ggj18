@@ -684,6 +684,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
+  enteredFinishPlanet: 0
+  won: 0
+  gameover: 0
 --- !u!4 &1899331060
 Transform:
   m_ObjectHideFlags: 0
