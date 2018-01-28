@@ -9,6 +9,7 @@ public class RadarManager : MonoBehaviour {
 
     public GameObject planetObjPrefab;
     public GameObject obstacleObjPrefab;
+    public GameObject playerObjPrefab;
 
     // Use this for initialization
     void Awake () {
@@ -25,6 +26,13 @@ public class RadarManager : MonoBehaviour {
     public void AddObstacle(Transform _transform)
     {
         GameObject go = Instantiate(obstacleObjPrefab, gameObject.transform, false) as GameObject;
+        MinimapObject minimapob = go.GetComponent<MinimapObject>();
+        minimapob.SetTransformRef(_transform);
+    }
+
+    public void AddPlayer(Transform _transform)
+    {
+        GameObject go = Instantiate(playerObjPrefab, gameObject.transform, false) as GameObject;
         MinimapObject minimapob = go.GetComponent<MinimapObject>();
         minimapob.SetTransformRef(_transform);
     }
