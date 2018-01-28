@@ -18,6 +18,9 @@ public class ShipCotroller : MonoBehaviour {
 
     public AudioSource audio_explosion;
     public AudioSource audio_thrust;
+    public AudioSource audio_shieldActivate;
+    public AudioSource audio_shieldLowPower;
+    public AudioSource audio_shipOOB;
 
     public GameObject explosion;
 
@@ -65,11 +68,11 @@ public class ShipCotroller : MonoBehaviour {
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Die();
-            Debug.Log("Explode"); //TODO Replace with explosion and game over
         }
         else if (collision.gameObject.tag == "Obstacle" && isShieldActive)
         {
             Instantiate(explosion, collision.gameObject.transform.position, Quaternion.identity);
+            audio_explosion.Play();
             Destroy(collision.gameObject);
         }
     }
@@ -156,6 +159,7 @@ public class ShipCotroller : MonoBehaviour {
             case SignalCommand.SHIELD:
                 if ((shieldPower - shieldUseCost) >= 0)
                 {
+                    audio_shieldActivate.Play();
                     isShieldActive = true;
                     shieldVisuals.ActivateShield(shieldActiveTime);
                     shieldPower -= shieldUseCost;
@@ -163,7 +167,7 @@ public class ShipCotroller : MonoBehaviour {
                 }
                 else
                 {
-                    //TODO put in shieldfailure sound
+                    audio_shieldLowPower.Play();
                 }
                 break;
         }
