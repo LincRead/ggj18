@@ -24,6 +24,8 @@ public class ShipCotroller : MonoBehaviour {
 
     public GameObject explosion;
 
+    public GameObject finalPlanet;
+
     // Use this for initialization
     private void Start () {
         pc = GameObject.FindObjectOfType<PlanetController>();
@@ -49,8 +51,9 @@ public class ShipCotroller : MonoBehaviour {
         {
             transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
 
-            if(transform.position.y > 2.9f || transform.position.y < - 2.9f)
+            if(transform.position.y > 2.9f || transform.position.y < - 2.9f || transform.position.x > finalPlanet.transform.position.x)
             {
+                audio_shipOOB.Play();
                 Die();
             }
         }
