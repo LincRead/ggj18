@@ -21,6 +21,10 @@ public class Planet {
     }
 
     public void Update(Transform shipTransform) {
+
+        if (shipTransform == null)
+            return;
+
         if (IsSpaceshipInRadius(shipTransform.position))
             Debug.LogAssertion("SHIP IS DEAD");
 

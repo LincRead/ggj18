@@ -119,8 +119,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrustPower: 0.1
-  velocityX: 0.25
+  initVelocityX: 0.25
   maxSpeed: 2
+  shieldPower: 10
+  shieldUseCost: 1
+  shieldActiveTime: 1
+  explosion: {fileID: 1698543939809126, guid: 3e4d7a124a7ab3e49a7860746baa89f7, type: 2}
 --- !u!114 &114781282398406014
 MonoBehaviour:
   m_ObjectHideFlags: 1

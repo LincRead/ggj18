@@ -15,6 +15,7 @@ public class ShipCotroller : MonoBehaviour {
     private PlanetController pc;
     private bool isShieldActive = false;
 
+    public GameObject explosion;
 
     // Use this for initialization
     private void Start () {
@@ -33,21 +34,29 @@ public class ShipCotroller : MonoBehaviour {
 
     private void Update()
     {
-        transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
+        if(veocity.x != 0 || veocity.y != 0)
+        {
+            transform.position += new Vector3(veocity.x * Time.deltaTime, veocity.y * Time.deltaTime, 0.0f);
+
+            if(transform.position.y > 2.9f || transform.position.y < - 2.9f)
+            {
+                Die();
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)    
     {
         if (collision.gameObject.tag == "Planet")
         {
-            if (pc.IsWinPlanet(collision.gameObject)) ;
-            //TODO: Start the win here
-            else
-                Debug.Log("explode"); //TODO Replace with explosion and game over
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Die();
         }
 
         if (collision.gameObject.tag == "Obstacle" && !isShieldActive)
+        {
             Debug.Log("Explode"); //TODO Replace with explosion and game over
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -64,6 +73,16 @@ public class ShipCotroller : MonoBehaviour {
         {
             Win();
         }
+    }
+
+    void Die()
+    {
+        veocity.x = 0;
+        veocity.y = 0;
+        GetComponent<Collider2D>().enabled = false;
+        WorldManager.instance.GameOver();
+        GetComponent<SpriteRenderer>().enabled = false;
+
     }
 
     void Win()

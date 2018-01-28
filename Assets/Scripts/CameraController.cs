@@ -30,7 +30,8 @@ public class CameraController : MonoBehaviour {
 	
 	void Update ()
     {
-        _transform.position = new Vector3(WorldManager.instance.ship.transform.position.x + 0.5f, 0f, -10f);
+        if(WorldManager.instance.ship != null)
+            _transform.position = new Vector3(WorldManager.instance.ship.transform.position.x + 0.5f, 0f, -10f);
 
         // HandleDebugInput();
 	}
