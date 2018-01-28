@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: be9dd460d03b4f1408ce0a820b6a4df2
-timeCreated: 1517035181
+timeCreated: 1517106142
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,8 @@ TextureImporter:
     21300002: signalbuttons_1
     21300004: signalbuttons_2
     21300006: signalbuttons_3
+    21300008: signalbuttons_4
+    21300010: signalbuttons_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -140,6 +142,34 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 108
+        y: 0
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: signalbuttons_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: signalbuttons_5
+      rect:
+        serializedVersion: 2
+        x: 180
         y: 0
         width: 36
         height: 36
