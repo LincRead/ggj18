@@ -154,11 +154,17 @@ public class ShipCotroller : MonoBehaviour {
                 break;
 
             case SignalCommand.SHIELD:
-                isShieldActive = true;
-                shieldVisuals.ActivateShield(shieldActiveTime);
-                shieldPower -= shieldUseCost;
-                Invoke("TurnOffShield", shieldActiveTime);
-                Debug.Log("shield");
+                if ((shieldPower - shieldUseCost) >= 0)
+                {
+                    isShieldActive = true;
+                    shieldVisuals.ActivateShield(shieldActiveTime);
+                    shieldPower -= shieldUseCost;
+                    Invoke("TurnOffShield", shieldActiveTime);                  
+                }
+                else
+                {
+                    //TODO put in shieldfailure sound
+                }
                 break;
         }
     }
