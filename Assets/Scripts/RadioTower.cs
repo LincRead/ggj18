@@ -35,7 +35,11 @@ public class RadioTower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if(WorldManager.instance.enteredFinishPlanet)
+        {
+            canSendSignal = false;
+            return;
+        }
 
         if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W))
             LaunchSignal(SignalCommand.LEFT);

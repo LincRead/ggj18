@@ -80,7 +80,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 0
   obstaclePrefabs:
-  - {fileID: 1828101981560978, guid: 6dc016791b4ed0e4187f2c907a2e4070, type: 2}
+  - {fileID: 1420329779138378, guid: ecd54b6cc30fe5e48aa388e5109923cc, type: 2}
+  MIN_ORBIT_RANGE: -50
+  MAX_ORBIT_RANGE: 50
 --- !u!212 &212091429318083734
 SpriteRenderer:
   m_ObjectHideFlags: 1

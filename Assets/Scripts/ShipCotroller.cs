@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShipCotroller : MonoBehaviour {
     Vector2 veocity = Vector2.zero;
     public float thrustPower = 1f;
-    public float velocityX = 1f;
+    public float initVelocityX = 1f;
     public float maxSpeed = 3f;
     public float shieldPower = 10f;
     public float shieldUseCost = 1f;
@@ -27,7 +27,7 @@ public class ShipCotroller : MonoBehaviour {
 
     private void Init()
     {
-        veocity.x = velocityX;
+        veocity.x = initVelocityX;
         LeanTween.scale(gameObject, new Vector3(1, 1, 1), 2);
     }
 
@@ -60,10 +60,26 @@ public class ShipCotroller : MonoBehaviour {
         }
 
         //Ship hits Finishing Planet
-        if (collision.gameObject.tag == "Finish") {
-            LeanTween.scale(gameObject, new Vector3(0, 0, 0), 2);
-
+        if (collision.gameObject.tag == "Finish")
+        {
+            Win();
         }
+    }
+
+    void Win()
+    {
+        WorldManager.instance.enteredFinishPlanet = true;
+
+        float time = 2f;
+        LeanTween.scale(gameObject, new Vector3(0, 0, 0), time);
+        Invoke("Stop", time);
+    }
+
+    void Stop()
+    {
+        veocity.x = 0;
+
+        WorldManager.instance.won = true;
     }
 
     public void receiveSignal(SignalCommand signalCommand)

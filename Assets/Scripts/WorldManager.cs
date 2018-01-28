@@ -9,6 +9,10 @@ public class WorldManager : MonoBehaviour
     [HideInInspector]
     public GameObject ship;
 
+    public bool enteredFinishPlanet = false;
+    public bool won = false;
+    public bool gameover = false;
+
     public static WorldManager instance
     {
         get
@@ -40,5 +44,10 @@ public class WorldManager : MonoBehaviour
     void OnEnable()
     {
         ship = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    public void RestartGame()
+    {
+
     }
 }
