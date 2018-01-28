@@ -57,3 +57,6 @@ TagManager:
   - name: HUD
     uniqueID: 4025461905
     locked: 0
+  - name: MinimapObject
+    uniqueID: 1868499011
+    locked: 0
